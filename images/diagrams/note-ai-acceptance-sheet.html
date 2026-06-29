@@ -7,128 +7,145 @@
   body {
     width: 1280px; height: 670px; overflow: hidden;
     background: #FFFFFF;
-    font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
-    display: flex; align-items: flex-start; justify-content: center;
-    padding-top: 50px;
+    font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic UI', 'Yu Gothic', sans-serif;
+    font-weight: 700;
+    display: flex; flex-direction: column;
+    padding: 20px 32px 18px;
     position: relative;
   }
-  .border { position: absolute; inset: 16px; border: 1px solid #E0E0E0; }
-  .aw { position: absolute; top: 28px; right: 32px; font-size: 13px; color: #C0C8D8; letter-spacing: 0.05em; font-weight: 500; }
+  .border { position: absolute; inset: 10px; border: 1.5px solid #D8E4F0; pointer-events: none; }
+  .aw { position: absolute; top: 18px; right: 24px; font-size: 15px; color: #B8C8DC; font-weight: 700; }
+
   .title {
-    position: absolute; top: 44px; left: 0; right: 0;
-    text-align: center; font-size: 18px; color: #0B1F3A; font-weight: 700; letter-spacing: 0.04em;
+    font-size: 24px; color: #0B1F3A; font-weight: 900; text-align: center;
+    margin-bottom: 16px; line-height: 1.3;
   }
 
-  .main { display: flex; gap: 32px; margin-top: 28px; align-items: flex-start; }
+  .body { display: flex; gap: 24px; flex: 1; min-height: 0; }
 
-  .left { display: flex; flex-direction: column; gap: 10px; width: 340px; }
-  .rule-box {
-    border: 1.5px solid #E8F1FB; border-radius: 8px; padding: 14px 16px;
-    background: #FAFCFF;
-  }
-  .rule-label { font-size: 11px; color: #1568F0; font-weight: 700; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.08em; }
-  .rule-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+  /* Left panel */
+  .left { width: 330px; flex-shrink: 0; display: flex; flex-direction: column; gap: 12px; }
+
+  .rule-box { border: 2px solid #D0E0F4; border-radius: 10px; padding: 14px 16px; background: #F4F8FE; }
+  .rule-label { font-size: 13px; color: #1568F0; font-weight: 900; letter-spacing: 0.08em; margin-bottom: 10px; }
+  .rule-row { display: flex; gap: 10px; margin-bottom: 8px; }
   .rule-row:last-child { margin-bottom: 0; }
-  .ok { color: #1568F0; font-size: 13px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-  .ng { color: #B0B0B0; font-size: 13px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-  .rule-text { font-size: 13px; color: #2C3E58; line-height: 1.5; }
+  .tag-ok { font-size: 15px; font-weight: 900; color: #1568F0; flex-shrink: 0; margin-top: 1px; min-width: 28px; }
+  .tag-ng { font-size: 15px; font-weight: 900; color: #B03030; flex-shrink: 0; margin-top: 1px; min-width: 28px; }
+  .rule-text { font-size: 15px; color: #1A3055; font-weight: 700; line-height: 1.5; }
+
+  .third-box { border: 2px solid #D0E0F4; border-radius: 10px; padding: 12px 16px; background: #F4F8FE; }
+  .third-label { font-size: 13px; color: #1568F0; font-weight: 900; margin-bottom: 8px; }
+  .third-text { font-size: 15px; color: #1A3055; font-weight: 700; line-height: 1.55; }
+  .third-text strong { color: #1568F0; }
+
   .limit-box {
-    background: #0B1F3A; border-radius: 8px; padding: 12px 16px;
-    display: flex; align-items: center; gap: 12px;
+    background: #0B1F3A; border-radius: 10px; padding: 14px 16px;
+    display: flex; align-items: center; gap: 14px; flex: 1;
   }
-  .limit-num { font-size: 32px; font-weight: 700; color: #1568F0; flex-shrink: 0; }
-  .limit-text { font-size: 13px; color: #fff; line-height: 1.5; }
+  .limit-num { font-size: 52px; font-weight: 900; color: #1568F0; flex-shrink: 0; line-height: 1; }
+  .limit-text { font-size: 16px; color: #fff; font-weight: 700; line-height: 1.55; }
+  .limit-text strong { color: #3A8DF0; font-size: 18px; }
 
-  .divider { width: 1px; background: #E0E0E0; align-self: stretch; flex-shrink: 0; }
+  /* Divider */
+  .div-line { width: 1.5px; background: #D8E4F0; flex-shrink: 0; }
 
-  .right { flex: 1; }
-  .sheet-title { font-size: 14px; color: #0B1F3A; font-weight: 700; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 2px solid #1568F0; }
-  .section { margin-bottom: 10px; }
-  .section-head {
-    font-size: 11.5px; font-weight: 700; color: #fff;
-    background: #1568F0; border-radius: 4px 4px 0 0;
-    padding: 5px 12px; display: inline-block;
+  /* Right panel */
+  .right { flex: 1; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+
+  .sheet-head {
+    font-size: 18px; color: #0B1F3A; font-weight: 900;
+    border-bottom: 3px solid #1568F0; padding-bottom: 8px; margin-bottom: 2px;
   }
-  .section-head.gray { background: #7A8EA8; }
+
+  .section { display: flex; flex-direction: column; }
+  .sec-head {
+    font-size: 15px; font-weight: 900; color: #fff;
+    padding: 6px 14px; border-radius: 6px 6px 0 0; display: inline-block; align-self: flex-start;
+  }
+  .sec-head.blue { background: #1568F0; }
+  .sec-head.red { background: #CC2828; }
+  .sec-head.gray { background: #6A82A0; }
   .check-list {
-    border: 1px solid #E8F1FB; border-top: none; border-radius: 0 0 6px 6px;
-    padding: 8px 12px;
-    display: flex; flex-direction: column; gap: 6px;
+    border: 2px solid #E0EAF8; border-top: none; border-radius: 0 6px 6px 6px;
+    padding: 8px 14px; display: flex; flex-direction: column; gap: 7px;
   }
-  .check-row { display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: #2C3E58; }
-  .checkbox { width: 16px; height: 16px; border: 1.5px solid #9AB0CC; border-radius: 3px; flex-shrink: 0; }
-  .verdict-row {
-    display: flex; align-items: center; gap: 10px; margin-top: 8px;
-    background: #E8F1FB; border-radius: 6px; padding: 8px 14px;
+  .check-row { display: flex; align-items: center; gap: 10px; }
+  .checkbox {
+    width: 20px; height: 20px; border: 2px solid #9AB8D8; border-radius: 4px;
+    flex-shrink: 0; background: #fff;
   }
-  .verdict-label { font-size: 12px; color: #0B1F3A; font-weight: 700; }
-  .verdict-val { font-size: 13px; color: #1568F0; font-weight: 700; }
-  .verdict-note { font-size: 11.5px; color: #5A7090; margin-left: 4px; }
+  .check-text { font-size: 16px; color: #1A3055; font-weight: 700; line-height: 1.4; }
+
+  .verdict {
+    display: flex; align-items: center; gap: 12px;
+    background: #E8F1FB; border-radius: 8px; padding: 10px 16px; margin-top: 4px;
+  }
+  .verdict-label { font-size: 15px; color: #0B1F3A; font-weight: 900; white-space: nowrap; }
+  .verdict-val { font-size: 17px; color: #CC2828; font-weight: 900; white-space: nowrap; }
+  .verdict-note { font-size: 14px; color: #3A5A80; font-weight: 700; line-height: 1.4; }
 </style>
 </head>
 <body>
 <div class="border"></div>
 <div class="aw">AW</div>
+
 <div class="title">合格判定シートの構造——「ある・ない」で判定できる基準だけを入れる</div>
 
-<div class="main">
+<div class="body">
   <div class="left">
     <div class="rule-box">
       <div class="rule-label">基準の書き方ルール</div>
       <div class="rule-row">
-        <div class="ok">OK</div>
-        <div class="rule-text">「〇〇が含まれているか」<br>「〇〇という言葉がないか」<br>（見れば分かる・ある/ないで答えられる）</div>
+        <div class="tag-ok">OK</div>
+        <div class="rule-text">「〇〇が含まれているか」<br>「〇〇という言葉がないか」<br>→ 見れば分かる・ある/ないで答えられる</div>
       </div>
       <div class="rule-row">
-        <div class="ng">NG</div>
-        <div class="rule-text">「クオリティが高いか」<br>「読みやすいか」「良い感じか」<br>（感想・主観は判定基準にならない）</div>
+        <div class="tag-ng">NG</div>
+        <div class="rule-text">「クオリティが高いか」<br>「読みやすいか」「良い感じか」<br>→ 感想・主観は判定基準にならない</div>
       </div>
     </div>
-    <div class="rule-box">
-      <div class="rule-label">第三者テスト</div>
-      <div class="rule-text" style="font-size:13px; line-height:1.6;">
-        シートを別の人に見せて<br>
-        <span style="color:#1568F0; font-weight:700;">同じ結論になるか</span>を確認する。<br>
-        結論が割れるなら基準があいまい。
-      </div>
+    <div class="third-box">
+      <div class="third-label">第三者テスト</div>
+      <div class="third-text">シートを別の人に見せて<br><strong>同じ結論になるか</strong>を確認する。<br>結論が割れるなら基準があいまい。</div>
     </div>
     <div class="limit-box">
       <div class="limit-num">5</div>
-      <div class="limit-text">必須チェックは<br><span style="color:#3A8DF0; font-weight:700;">最大5項目</span>まで<br>「なければ使えない」だけを残す</div>
+      <div class="limit-text">必須チェックは<br><strong>最大5項目</strong>まで<br>「なければ使えない」<br>だけを残す</div>
     </div>
   </div>
 
-  <div class="divider"></div>
+  <div class="div-line"></div>
 
   <div class="right">
-    <div class="sheet-title">合格判定シート（例：週次レポートのサマリー作成）</div>
+    <div class="sheet-head">合格判定シート（例：週次レポートのサマリー作成）</div>
 
     <div class="section">
-      <div class="section-head">必須チェック ／ 1つでも✕なら修正</div>
+      <div class="sec-head blue">必須チェック ／ 1つでも✕なら修正</div>
       <div class="check-list">
-        <div class="check-row"><div class="checkbox"></div>先週の成果が3点以上含まれているか</div>
-        <div class="check-row"><div class="checkbox"></div>今週の優先タスクが明記されているか</div>
-        <div class="check-row"><div class="checkbox"></div>懸念事項または課題が1点以上含まれているか</div>
+        <div class="check-row"><div class="checkbox"></div><div class="check-text">先週の成果が3点以上含まれているか</div></div>
+        <div class="check-row"><div class="checkbox"></div><div class="check-text">今週の優先タスクが明記されているか</div></div>
+        <div class="check-row"><div class="checkbox"></div><div class="check-text">懸念事項または課題が1点以上含まれているか</div></div>
       </div>
     </div>
 
     <div class="section">
-      <div class="section-head" style="background:#E85050;">排除チェック ／ 1つでも該当なら修正</div>
+      <div class="sec-head red">排除チェック ／ 1つでも該当なら修正</div>
       <div class="check-list">
-        <div class="check-row"><div class="checkbox"></div>個人名が含まれていないか</div>
-        <div class="check-row"><div class="checkbox"></div>推測を事実として断言している箇所がないか</div>
+        <div class="check-row"><div class="checkbox"></div><div class="check-text">個人名が含まれていないか</div></div>
+        <div class="check-row"><div class="checkbox"></div><div class="check-text">推測を事実として断言している箇所がないか</div></div>
       </div>
     </div>
 
     <div class="section">
-      <div class="section-head gray">全体品質チェック（任意）</div>
+      <div class="sec-head gray">全体品質チェック（任意）</div>
       <div class="check-list">
-        <div class="check-row"><div class="checkbox"></div>月曜の朝に5分で読める分量（300〜500字程度）か</div>
-        <div class="check-row"><div class="checkbox"></div>事実ベースの記述になっているか</div>
+        <div class="check-row"><div class="checkbox"></div><div class="check-text">月曜の朝に5分で読める分量（300〜500字程度）か</div></div>
+        <div class="check-row"><div class="checkbox"></div><div class="check-text">事実ベースの記述になっているか</div></div>
       </div>
     </div>
 
-    <div class="verdict-row">
+    <div class="verdict">
       <div class="verdict-label">この出力の判定：</div>
       <div class="verdict-val">要修正</div>
       <div class="verdict-note">修正箇所：懸念事項の項目がない → プロンプトに「懸念点を1点含める」を追加</div>

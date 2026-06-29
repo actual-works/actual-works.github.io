@@ -7,62 +7,70 @@
   body {
     width: 1280px; height: 670px; overflow: hidden;
     background: #FFFFFF;
-    font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+    font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic UI', 'Yu Gothic', sans-serif;
+    font-weight: 700;
+    display: flex; flex-direction: column;
+    padding: 20px 28px 18px;
     position: relative;
   }
-  .border { position: absolute; inset: 16px; border: 1px solid #E0E0E0; }
-  .aw { position: absolute; top: 28px; right: 32px; font-size: 13px; color: #C0C8D8; letter-spacing: 0.05em; font-weight: 500; }
+  .border { position: absolute; inset: 10px; border: 1.5px solid #D8E4F0; pointer-events: none; }
+  .aw { position: absolute; top: 18px; right: 24px; font-size: 15px; color: #B8C8DC; font-weight: 700; }
+
   .title {
-    position: absolute; top: 44px; left: 0; right: 0;
-    text-align: center; font-size: 18px; color: #0B1F3A; font-weight: 700; letter-spacing: 0.04em;
+    font-size: 24px; color: #0B1F3A; font-weight: 900; text-align: center;
+    margin-bottom: 14px;
   }
+
   .grid {
-    position: absolute; top: 90px; left: 48px; right: 48px; bottom: 36px;
     display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr;
-    gap: 16px;
+    gap: 14px; flex: 1; min-height: 0;
   }
+
   .card {
-    border: 1.5px solid #E8F1FB; border-radius: 10px; padding: 18px 20px;
-    display: flex; flex-direction: column; gap: 8px;
-    background: #FAFCFF;
+    border: 2px solid #D8E8F8; border-radius: 10px; padding: 14px 16px;
+    display: flex; flex-direction: column; gap: 8px; background: #F5F9FF;
   }
-  .card-head { display: flex; align-items: center; gap: 10px; margin-bottom: 2px; }
+
+  .card-head { display: flex; align-items: center; gap: 10px; }
   .card-num {
-    width: 28px; height: 28px; border-radius: 50%; background: #1568F0;
-    color: #fff; font-size: 13px; font-weight: 700;
+    width: 32px; height: 32px; border-radius: 50%; background: #1568F0;
+    color: #fff; font-size: 17px; font-weight: 900;
     display: flex; align-items: center; justify-content: center; flex-shrink: 0;
   }
-  .card-title { font-size: 14px; color: #0B1F3A; font-weight: 700; line-height: 1.4; }
-  .row { display: flex; gap: 8px; align-items: flex-start; }
-  .tag {
-    font-size: 10.5px; font-weight: 700; padding: 2px 8px; border-radius: 20px;
-    flex-shrink: 0; margin-top: 2px;
+  .card-title { font-size: 18px; color: #0B1F3A; font-weight: 900; line-height: 1.35; }
+
+  .info-row { display: flex; align-items: flex-start; gap: 8px; }
+  .badge {
+    font-size: 13px; font-weight: 900; padding: 3px 10px; border-radius: 20px;
+    flex-shrink: 0; margin-top: 1px; white-space: nowrap;
   }
-  .tag-s { background: #FFE8E8; color: #C83232; }
-  .tag-c { background: #E8F1FB; color: #1568F0; }
-  .tag-f { background: #E8F5E8; color: #2A8A3E; }
-  .tag-text { font-size: 12.5px; color: #2C3E58; line-height: 1.55; }
-  .fix-box {
-    margin-top: 4px; background: #0B1F3A; border-radius: 6px;
-    padding: 9px 14px; font-size: 12px; color: #fff; line-height: 1.55;
+  .badge-s { background: #FFE0E0; color: #B82020; }
+  .badge-c { background: #DDEEFF; color: #1568F0; }
+  .info-text { font-size: 15px; color: #1A3055; font-weight: 700; line-height: 1.5; }
+
+  .fix {
+    background: #0B1F3A; border-radius: 7px; padding: 9px 14px;
+    font-size: 15px; color: #fff; font-weight: 700; line-height: 1.5; margin-top: 2px;
   }
-  .fix-box .label { color: #3A8DF0; font-weight: 700; margin-right: 4px; }
+  .fix strong { color: #3A8DF0; }
 </style>
 </head>
 <body>
 <div class="border"></div>
 <div class="aw">AW</div>
+
 <div class="title">合格基準でよくある4つの失敗パターンと回避策</div>
 
 <div class="grid">
+
   <div class="card">
     <div class="card-head">
       <div class="card-num">1</div>
       <div class="card-title">基準が「良し悪しの感想」になっている</div>
     </div>
-    <div class="row"><span class="tag tag-s">症状</span><span class="tag-text">「クオリティが高いか」「読みやすいか」と書いたのに、毎回「なんか違う」が出る</span></div>
-    <div class="row"><span class="tag tag-c">原因</span><span class="tag-text">感想は「ある・ない」で判定できない。主観は基準にならない</span></div>
-    <div class="fix-box"><span class="label">回避：</span>「クオリティが高いか」→「300字以内に収まっているか」「箇条書き3点以内か」に書き直す</div>
+    <div class="info-row"><span class="badge badge-s">症状</span><span class="info-text">「クオリティが高いか」「読みやすいか」と書いたのに、毎回「なんか違う」が出る</span></div>
+    <div class="info-row"><span class="badge badge-c">原因</span><span class="info-text">感想は「ある・ない」で判定できない。主観は基準にならない</span></div>
+    <div class="fix"><strong>回避：</strong>「クオリティが高いか」→「300字以内か」「箇条書き3点以内か」に書き直す</div>
   </div>
 
   <div class="card">
@@ -70,9 +78,9 @@
       <div class="card-num">2</div>
       <div class="card-title">基準が多すぎてシートを使わなくなる</div>
     </div>
-    <div class="row"><span class="tag tag-s">症状</span><span class="tag-text">最初は丁寧に作ったが10項目以上になり、確認が面倒で使わなくなった</span></div>
-    <div class="row"><span class="tag tag-c">原因</span><span class="tag-text">「あったらいい基準」と「なければ使えない基準」が混在している</span></div>
-    <div class="fix-box"><span class="label">回避：</span>必須チェックは最大5項目。「なければ使えない」だけを残し、残りは任意欄へ</div>
+    <div class="info-row"><span class="badge badge-s">症状</span><span class="info-text">最初は丁寧に作ったが10項目以上になり、確認が面倒で使わなくなった</span></div>
+    <div class="info-row"><span class="badge badge-c">原因</span><span class="info-text">「あったらいい基準」と「なければ使えない基準」が混在している</span></div>
+    <div class="fix"><strong>回避：</strong>必須チェックは最大5項目。「なければ使えない」だけを残し、残りは任意欄へ</div>
   </div>
 
   <div class="card">
@@ -80,9 +88,9 @@
       <div class="card-num">3</div>
       <div class="card-title">合格なのに上司・読者からフィードバックが来る</div>
     </div>
-    <div class="row"><span class="tag tag-s">症状</span><span class="tag-text">シートでは合格のはずなのに「違う」と言われた。なぜ？</span></div>
-    <div class="row"><span class="tag tag-c">原因</span><span class="tag-text">合格基準が自分視点だけ。「誰が使うか」の視点が抜けている</span></div>
-    <div class="fix-box"><span class="label">回避：</span>「用途（誰が・何のために）」欄を再確認。可能なら読者に「どうなれば使いやすいか」を1回だけ聞く</div>
+    <div class="info-row"><span class="badge badge-s">症状</span><span class="info-text">シートでは合格のはずなのに「違う」と言われた。なぜ？</span></div>
+    <div class="info-row"><span class="badge badge-c">原因</span><span class="info-text">合格基準が自分視点だけ。「誰が使うか」の視点が抜けている</span></div>
+    <div class="fix"><strong>回避：</strong>「用途（誰が・何のために）」欄を再確認。可能なら読者に1回だけ聞く</div>
   </div>
 
   <div class="card">
@@ -90,10 +98,11 @@
       <div class="card-num">4</div>
       <div class="card-title">毎回プロンプトをゼロから作り直している</div>
     </div>
-    <div class="row"><span class="tag tag-s">症状</span><span class="tag-text">合格基準は定義できたのに、毎回プロンプトを一から書いていて時間がかかる</span></div>
-    <div class="row"><span class="tag tag-c">原因</span><span class="tag-text">プロンプトと合格基準が紐づいていない。修正ログが残っていない</span></div>
-    <div class="fix-box"><span class="label">回避：</span>「プロンプト修正ログ」テンプレートを使う。合格した時点のプロンプトを保存し、次回はそこから修正</div>
+    <div class="info-row"><span class="badge badge-s">症状</span><span class="info-text">合格基準は定義できたのに、毎回プロンプトを一から書いていて時間がかかる</span></div>
+    <div class="info-row"><span class="badge badge-c">原因</span><span class="info-text">プロンプトと合格基準が紐づいていない。修正ログが残っていない</span></div>
+    <div class="fix"><strong>回避：</strong>「プロンプト修正ログ」テンプレートを使う。合格した時点のプロンプトを保存</div>
   </div>
+
 </div>
 </body>
 </html>
