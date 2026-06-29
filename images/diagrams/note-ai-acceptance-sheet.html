@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1280px; height: 670px; overflow: hidden;
+    background: #FFFFFF;
+    font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+    display: flex; align-items: flex-start; justify-content: center;
+    padding-top: 50px;
+    position: relative;
+  }
+  .border { position: absolute; inset: 16px; border: 1px solid #E0E0E0; }
+  .aw { position: absolute; top: 28px; right: 32px; font-size: 13px; color: #C0C8D8; letter-spacing: 0.05em; font-weight: 500; }
+  .title {
+    position: absolute; top: 44px; left: 0; right: 0;
+    text-align: center; font-size: 18px; color: #0B1F3A; font-weight: 700; letter-spacing: 0.04em;
+  }
+
+  .main { display: flex; gap: 32px; margin-top: 28px; align-items: flex-start; }
+
+  .left { display: flex; flex-direction: column; gap: 10px; width: 340px; }
+  .rule-box {
+    border: 1.5px solid #E8F1FB; border-radius: 8px; padding: 14px 16px;
+    background: #FAFCFF;
+  }
+  .rule-label { font-size: 11px; color: #1568F0; font-weight: 700; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.08em; }
+  .rule-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+  .rule-row:last-child { margin-bottom: 0; }
+  .ok { color: #1568F0; font-size: 13px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .ng { color: #B0B0B0; font-size: 13px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .rule-text { font-size: 13px; color: #2C3E58; line-height: 1.5; }
+  .limit-box {
+    background: #0B1F3A; border-radius: 8px; padding: 12px 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .limit-num { font-size: 32px; font-weight: 700; color: #1568F0; flex-shrink: 0; }
+  .limit-text { font-size: 13px; color: #fff; line-height: 1.5; }
+
+  .divider { width: 1px; background: #E0E0E0; align-self: stretch; flex-shrink: 0; }
+
+  .right { flex: 1; }
+  .sheet-title { font-size: 14px; color: #0B1F3A; font-weight: 700; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 2px solid #1568F0; }
+  .section { margin-bottom: 10px; }
+  .section-head {
+    font-size: 11.5px; font-weight: 700; color: #fff;
+    background: #1568F0; border-radius: 4px 4px 0 0;
+    padding: 5px 12px; display: inline-block;
+  }
+  .section-head.gray { background: #7A8EA8; }
+  .check-list {
+    border: 1px solid #E8F1FB; border-top: none; border-radius: 0 0 6px 6px;
+    padding: 8px 12px;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .check-row { display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: #2C3E58; }
+  .checkbox { width: 16px; height: 16px; border: 1.5px solid #9AB0CC; border-radius: 3px; flex-shrink: 0; }
+  .verdict-row {
+    display: flex; align-items: center; gap: 10px; margin-top: 8px;
+    background: #E8F1FB; border-radius: 6px; padding: 8px 14px;
+  }
+  .verdict-label { font-size: 12px; color: #0B1F3A; font-weight: 700; }
+  .verdict-val { font-size: 13px; color: #1568F0; font-weight: 700; }
+  .verdict-note { font-size: 11.5px; color: #5A7090; margin-left: 4px; }
+</style>
+</head>
+<body>
+<div class="border"></div>
+<div class="aw">AW</div>
+<div class="title">合格判定シートの構造——「ある・ない」で判定できる基準だけを入れる</div>
+
+<div class="main">
+  <div class="left">
+    <div class="rule-box">
+      <div class="rule-label">基準の書き方ルール</div>
+      <div class="rule-row">
+        <div class="ok">OK</div>
+        <div class="rule-text">「〇〇が含まれているか」<br>「〇〇という言葉がないか」<br>（見れば分かる・ある/ないで答えられる）</div>
+      </div>
+      <div class="rule-row">
+        <div class="ng">NG</div>
+        <div class="rule-text">「クオリティが高いか」<br>「読みやすいか」「良い感じか」<br>（感想・主観は判定基準にならない）</div>
+      </div>
+    </div>
+    <div class="rule-box">
+      <div class="rule-label">第三者テスト</div>
+      <div class="rule-text" style="font-size:13px; line-height:1.6;">
+        シートを別の人に見せて<br>
+        <span style="color:#1568F0; font-weight:700;">同じ結論になるか</span>を確認する。<br>
+        結論が割れるなら基準があいまい。
+      </div>
+    </div>
+    <div class="limit-box">
+      <div class="limit-num">5</div>
+      <div class="limit-text">必須チェックは<br><span style="color:#3A8DF0; font-weight:700;">最大5項目</span>まで<br>「なければ使えない」だけを残す</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="right">
+    <div class="sheet-title">合格判定シート（例：週次レポートのサマリー作成）</div>
+
+    <div class="section">
+      <div class="section-head">必須チェック ／ 1つでも✕なら修正</div>
+      <div class="check-list">
+        <div class="check-row"><div class="checkbox"></div>先週の成果が3点以上含まれているか</div>
+        <div class="check-row"><div class="checkbox"></div>今週の優先タスクが明記されているか</div>
+        <div class="check-row"><div class="checkbox"></div>懸念事項または課題が1点以上含まれているか</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head" style="background:#E85050;">排除チェック ／ 1つでも該当なら修正</div>
+      <div class="check-list">
+        <div class="check-row"><div class="checkbox"></div>個人名が含まれていないか</div>
+        <div class="check-row"><div class="checkbox"></div>推測を事実として断言している箇所がないか</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head gray">全体品質チェック（任意）</div>
+      <div class="check-list">
+        <div class="check-row"><div class="checkbox"></div>月曜の朝に5分で読める分量（300〜500字程度）か</div>
+        <div class="check-row"><div class="checkbox"></div>事実ベースの記述になっているか</div>
+      </div>
+    </div>
+
+    <div class="verdict-row">
+      <div class="verdict-label">この出力の判定：</div>
+      <div class="verdict-val">要修正</div>
+      <div class="verdict-note">修正箇所：懸念事項の項目がない → プロンプトに「懸念点を1点含める」を追加</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
